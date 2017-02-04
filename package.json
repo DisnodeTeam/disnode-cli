@@ -1,0 +1,25 @@
+{
+  "name": "disnode-cli",
+  "version": "0.0.1",
+  "description": "Disnode Command Line Tool to Install Disnode Plugins for Bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "disnode": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoryforphil/disnode-cli.git"
+  },
+  "author": "Alex Carter (VictoryForPhil)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoryforphil/disnode-cli/issues"
+  },
+  "homepage": "https://github.com/victoryforphil/disnode-cli#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
