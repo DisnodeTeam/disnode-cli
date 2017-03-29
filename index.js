@@ -2,21 +2,32 @@
 const unzip = require('unzip');
 var program = require('commander');
 const fs = require('fs');
-var exec = require('child_process').spawn;
+
+var http = require('http');
+var spawn = require('cross-spawn');
+
+// Spawn NPM asynchronously
+
+
+
 program
 	.command('create <name>')
 	.description( 'Create a Disnode Project')
 	.action(function (name) {
 		console.log("Creating " + name);
-		fs.createReadStream('./disnode_template.zip')
-		.pipe(unzip.Extract({ path: name+'/' }))
-		.on("finish",function(){
-			console.log("- Created Template!");
-			var process = exec('npm install',{cwd: './' + name}, function(error, stdout, stderr) {
 
-			});
+
+		var request = http.get("http://localhost:8000/template", function(response) {
+  		response.pipe(unzip.Extract({ path: name+'/' }));
+			response.on("end", function(){
+				console.log(__dirname +"\\" + name);
+				console.log("Installing Dependiences");
+				var child = spawn.sync('npm', ['install'], { stdio: 'inherit' , cwd:__dirname +"\\" + name });
+				console.log("Done Installing!");
+			})
 
 		});
+
 	});
 program
 	.command('install <plugin>')
