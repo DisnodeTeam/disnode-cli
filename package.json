@@ -21,6 +21,8 @@
   "homepage": "https://github.com/victoryforphil/disnode-cli#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "unzip": "^0.1.11"
+    "cross-spawn": "^5.1.0",
+    "github-download": "^0.5.0",
+    "unzip2": "^0.2.5"
   }
 }
